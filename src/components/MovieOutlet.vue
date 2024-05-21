@@ -27,16 +27,18 @@
 </template>
 <script setup>
 import axios from 'axios'
-import { computed, ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 const apiKey = '25814457dd63d4a85b7862eb51b3a95a'
 const apiUrl = 'https://api.themoviedb.org/3'
 
-let grabMovies = []
-let movieCount = 8
+const grabMovies = ref([])
+const movieCount = ref(8)
+const searchQuery = ref('')
 
-const listedMoviesToDisplay = ref(grabMovies.slice(0, movieCount))
-const otherMovies = ref(grabMovies.slice(movieCount))
+const listedMoviesToDisplay = ref([])
+const otherMovies = computed(() => grabMovies.value.slice(movieCount.value))
+
 const showBtn = computed(() => otherMovies.value.length > 0)
 
 const toggleBtn = (movie) => {
@@ -44,18 +46,28 @@ const toggleBtn = (movie) => {
 }
 
 const moreMovieSlide = () => {
-  movieCount += 8
+  movieCount.value += 8
+  listedMoviesToDisplay.value = grabMovies.value.slice(0, movieCount.value)
 }
 
-const fetchData = async () => {
+const fetchData = async (query = '') => {
   try {
-    const res = await axios.get(`${apiUrl}/movie/popular?api_key=${apiKey}`)
-    grabMovies = res.data.results
-    listedMoviesToDisplay.value = grabMovies.slice(0, movieCount)
-    otherMovies.value = grabMovies.slice(movieCount)
+    const res = await axios.get(`${apiUrl}/movie/popular`, {
+      params: {
+        api_key: apiKey,
+        query
+      }
+    })
+    grabMovies.value = res.data.results
+    listedMoviesToDisplay.value = grabMovies.value.slice(0, movieCount.value)
   } catch (error) {
     console.error('Bad request: ', error.message)
   }
+}
+
+const performSearch = () => {
+  fetchData(searchQuery.value)
+  searchQuery.value = ''
 }
 
 onMounted(() => {
