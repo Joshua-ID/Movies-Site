@@ -48,11 +48,20 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 672px) {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .social-icons {
   display: flex;
   gap: 10px;
+
+  @media (max-width: 672px) {
+    justify-content: center;
+  }
 }
 
 .social-icons .fa-brands:hover {
@@ -80,7 +89,7 @@
   justify-content: space-between;
   border: none;
   outline: none;
-  min-width: 320px;
+  /* min-width: 320px; */
   gap: 13px;
   background: #fff;
   border-radius: 14px;
@@ -110,16 +119,18 @@
     transition: ease-in-out;
   }
 }
-.users .user-name {
-  margin-left: 9px;
-  color: gray;
-  font-size: calc(12px + 0.5vw);
+.user-name {
+  display: flex;
+  flex-wrap: wrap;
 }
+
 .users {
   background: #fff;
-  min-width: 320px;
   padding: 2rem;
   border-radius: 19px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .users .follower {
@@ -131,7 +142,8 @@
 .user-image {
   display: flex;
   align-items: center;
-  margin-top: 13px;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 .subscription button {
   background: red;

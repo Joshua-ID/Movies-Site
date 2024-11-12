@@ -123,15 +123,23 @@ const filteredMovies = computed(() => {
   background: red;
   color: #fff;
   height: 100%;
-  padding: 3px 48px;
+  padding: 0.195rem 2rem;
   border-radius: 14px;
   border: none;
   cursor: pointer;
+
+  @media (max-width: 495px) {
+    display: none;
+  }
 }
 
 .la-search {
   font-size: 2rem;
   padding-left: 8px;
+
+  @media (max-width: 672px) {
+    font-size: 1.5rem;
+  }
 }
 
 .search-box input {
@@ -139,8 +147,9 @@ const filteredMovies = computed(() => {
   border-radius: 14px;
   outline: none;
   width: 100%;
-  font-size: 19px;
+  font-size: clamp(0.8125rem, 0.7932rem + 0.0909vw, 0.875rem);
   border: none;
+  text-overflow: ellipsis;
 }
 
 video {

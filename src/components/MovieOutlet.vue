@@ -119,9 +119,21 @@ onMounted(() => {
 .movie-container {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 40px;
   padding: 1rem 4rem;
+
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 1rem 2.5rem;
+  }
+  @media (max-width: 500px) {
+    padding: 1rem 2rem;
+  }
+
+  @media (max-width: 400px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .movie-outlet h4 {
@@ -212,7 +224,6 @@ onMounted(() => {
 
 .card .image-card {
   width: 100%;
-  /* height: auto; */
   height: 400px;
   border-radius: 12px;
 }
