@@ -28,7 +28,9 @@
         </div>
       </div>
       <div class="subscription">
-        <input type="text" placeholder="subscribe with email" /><button>Submit Email</button>
+        <input type="text" placeholder="subscribe with email" /><button class="submit-btn">
+          Submit Email
+        </button>
       </div>
     </div>
   </div>
@@ -99,9 +101,14 @@
 }
 .users .profile-image img {
   width: 35px;
-  border: 1.5px solid #fff;
+  border: 2px solid #fff;
   margin-left: -9px;
   border-radius: 50px;
+
+  &:hover {
+    transform: translateY(-4px);
+    transition: ease-in-out;
+  }
 }
 .users .user-name {
   margin-left: 9px;
@@ -129,10 +136,14 @@
 .subscription button {
   background: red;
   color: #fff;
-  padding: 3px 7px;
-  border-radius: 14px;
+  padding: 3px 15px;
+  border-radius: 0 14px 14px 0;
   border: none;
   cursor: pointer;
+
+  &:hover {
+    color: rgb(10, 77, 29);
+  }
 }
 
 .social-icons .fa-brands {
