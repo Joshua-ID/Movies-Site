@@ -1,8 +1,7 @@
 <template>
   <div class="movie-outlet">
     <h4>Popular Collection</h4>
-    <div v-if="errorMsg" class="errorNotice">{{ errorMsg }}</div>
-    <div v-else class="movie-container">
+    <div class="movie-container">
       <div class="card" v-for="movie in listedMoviesToDisplay" :key="movie.id">
         <div v-if="movie.toggle" class="movie-overview">
           <p class="movie-title">{{ movie.title }}</p>
@@ -33,8 +32,7 @@ const apiKey = '25814457dd63d4a85b7862eb51b3a95a'
 const apiUrl = 'https://api.themoviedb.org/3'
 
 const grabMovies = ref([])
-const movieCount = ref(8)
-const searchQuery = ref('')
+const movieCount = ref(4)
 
 const listedMoviesToDisplay = ref([])
 const otherMovies = computed(() => grabMovies.value.slice(movieCount.value))
@@ -63,11 +61,6 @@ const fetchData = async (query = '') => {
   } catch (error) {
     console.error('Bad request: ', error.message)
   }
-}
-
-const performSearch = () => {
-  fetchData(searchQuery.value)
-  searchQuery.value = ''
 }
 
 onMounted(() => {

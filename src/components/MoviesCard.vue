@@ -16,7 +16,6 @@
           <div class="loader"></div>
           <div class="loader-text">Loading...</div>
         </div>
-        <div v-if="errorMsg" class="errorNotice">{{ errorMsg }}</div>
 
         <div class="movie-container">
           <div class="card" v-for="movie in (moviesPost, filteredMovies)" :key="movie.id">
