@@ -18,9 +18,9 @@
         <p class="follower"><i class="fa-solid fa-hashtag"></i> followers</p>
         <div class="user-image">
           <div class="profile-image">
-            <img src="/public/images/Ellipse 5.png" alt="user profiles" />
-            <img src="/public/images/Ellipse 5-1.png" alt="user profiles" />
-            <img src="/public/images/Ellipse 5-2.png" alt="user profiles" />
+            <img src="/images/Ellipse 5.png" alt="user profiles" />
+            <img src="/images/Ellipse 5-1.png" alt="user profiles" />
+            <img src="/images/Ellipse 5-2.png" alt="user profiles" />
           </div>
           <div class="user-name">
             <p>Kate, Saviour, and 17 other</p>

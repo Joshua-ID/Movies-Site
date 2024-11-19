@@ -53,7 +53,7 @@ const searchQuery = ref('')
 const isLoading = ref(false)
 const playVideo = ref(false)
 const backgroundVideo =
-  '/public/images/Mission_ Impossible – Dead Reckoning Part One _ Official Trailer (2023 Movie) - Tom Cruise.mp4'
+  '/images/Mission_ Impossible – Dead Reckoning Part One _ Official Trailer (2023 Movie) - Tom Cruise.mp4'
 
 const isPlaying = () => {
   const video = this.$refs.videoPlay
