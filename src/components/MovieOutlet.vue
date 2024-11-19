@@ -28,8 +28,10 @@
 import axios from 'axios'
 import { ref, computed, onMounted } from 'vue'
 
-const apiKey = '25814457dd63d4a85b7862eb51b3a95a'
-const apiUrl = 'https://api.themoviedb.org/3'
+const apiKey = import.meta.env.VITE_API_KEY
+const apiUrl = import.meta.env.VITE_API_URL
+
+console.log(import.meta.env.VITE_API_KEY)
 
 const grabMovies = ref([])
 const movieCount = ref(4)
