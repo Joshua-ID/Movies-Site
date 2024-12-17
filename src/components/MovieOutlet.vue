@@ -31,8 +31,6 @@ import { ref, computed, onMounted } from 'vue'
 const apiKey = import.meta.env.VITE_API_KEY
 const apiUrl = import.meta.env.VITE_API_URL
 
-console.log(import.meta.env.VITE_API_KEY)
-
 const grabMovies = ref([])
 const movieCount = ref(4)
 
